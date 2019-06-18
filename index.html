@@ -1,13 +1,67 @@
 <html>
     <head>
-        <meta charset="UTF-8">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
         <title>Notepad</title>
-    </head>
+
+        <link rel="shortcut icon" href="images/favicon.png">
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.teal-red.min.css">
+        <link rel="stylesheet" href="styles.css">
+        <style>
+            #view-source {
+                position: fixed;
+                display: block;
+                right: 0;
+                bottom: 0;
+                margin-right: 40px;
+                margin-bottom: 40px;
+                z-index: 900;
+            }
+        </style>
+    </head> 
     <body>
-        <div id="app"></div>
         <script src="dist/app.js"></script>
-        <script>
-            document.addEventListener('DOMContentLoaded', main)
-        </script>
+        <div class="demo-layout mdl-layout mdl-layout--fixed-header mdl-js-layout mdl-color--grey-100">
+            <div class="demo-ribbon">
+            </div>
+            <main class="demo-main mdl-layout__content">
+                <div class="demo-container mdl-grid">
+                    <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone">
+                    </div>
+                    <div class="demo-content mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
+                        <h3>Notes App</h3>
+                        <form id="noteInput" action="#">
+                            <div style="width: 40vmax" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <input class="mdl-textfield__input" type="text" id="noteTitleInput">
+                                <label class="mdl-textfield__label" for="noteTitleInput">Note Title...</label>
+                            </div>
+                            <div style="width: 40vmax" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <textarea class="mdl-textfield__input" type="text" rows= "3" id="noteContentInput" ></textarea>
+                                <label class="mdl-textfield__label" for="noteContentInput">Note Content...</label>
+                            </div>
+                            <button style="float:right" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="saveNote()">
+                                <i class="material-icons">add</i>
+                            </button>
+                        </form>
+                        <ul id="notesDisplay" class="demo-list-three mdl-list">
+                        </ul>
+                        <div id="noteList"></div>
+                        <div id="app"></div>
+                        <script>
+                            document.addEventListener('DOMContentLoaded', main)
+                        </script>
+                    </div>
+                </div>
+                <footer class="demo-footer mdl-mini-footer">
+                </footer>
+            </main>
+        </div>
+        <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+        
     </body>
 </html>
